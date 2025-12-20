@@ -1,0 +1,63 @@
+// class Solution {
+//     public int[] searchRange(int[] nums, int target) {
+//         return solve(nums, target, i , list);
+
+        
+//     }
+//     public ArrayList<Integer> solve (int nums, int target, int i, ArrayList<Integer> List){
+//         if (nums[i] == 0){
+//             return list;
+//         }
+        
+//         if(nums[i] == target){
+//             list.add(i);
+//         }
+//         return solve(nums, target, i+1 , list);
+//     }
+// }
+
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int first = findFirst(nums, target);
+        int last = findLast(nums, target);
+        return new int[]{first, last};
+    }
+
+    private int findFirst(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        int ans = -1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                ans = mid;
+                high = mid - 1; // go left
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return ans;
+    }
+
+    private int findLast(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        int ans = -1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] == target) {
+                ans = mid;
+                low = mid + 1; // go right
+            } else if (nums[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return ans;
+    }
+}
