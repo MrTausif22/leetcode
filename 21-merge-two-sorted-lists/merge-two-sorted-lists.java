@@ -1,6 +1,5 @@
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-
         ListNode dummy = new ListNode(-1);
         ListNode tail = dummy;
 
@@ -14,7 +13,6 @@ class Solution {
             }
             tail = tail.next;
         }
-
         // attach remaining nodes
         if (list1 != null) tail.next = list1;
         if (list2 != null) tail.next = list2;
