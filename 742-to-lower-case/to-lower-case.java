@@ -10,15 +10,24 @@ class Solution {
     // }
     // //     return s.toLowerCase(); 
 
-    String result = "";
-    for(int i = 0; i< s.length(); i++){
-        if('A' <= s.charAt(i) && 'Z' >= s.charAt(i)){
-            result += (char) (s.charAt(i)+ 32);
-        }else{
-            result += s.charAt(i);
-        }
-    }
-    return result;
+    // String result = "";
+    // for(int i = 0; i< s.length(); i++){
+    //     if('A' <= s.charAt(i) && 'Z' >= s.charAt(i)){
+    //         result += (char) (s.charAt(i)+ 32);
+    //     }else{
+    //         result += s.charAt(i);
+    //     }
+    // }
+    // return result;
 
+    StringBuilder sb = new StringBuilder();
+
+    for(char c : s.toCharArray()){
+        if(c >= 65 && c <= 90){
+            c = (char) (c+32);
+        }
+        sb.append(c);
+    }
+        return sb.toString();
     }
 }
