@@ -20,24 +20,22 @@ class Solution {
         boolean[] upper = new boolean[26];
 
         // Mark lowercase and uppercase
-        for (char ch : word.toCharArray()) {
-
+        // for (char ch : word.toCharArray()) {
+            char[] arr = word.toCharArray();
+            for(int i=0; i<arr.length; i++){
+                char ch = arr[i];
             if (Character.isLowerCase(ch)) {
                 lower[ch - 'a'] = true;
             } else {
                 upper[ch - 'A'] = true;
             }
         }
-
-        // Count special characters
         int count = 0;
-
         for (int i = 0; i < 26; i++) {
             if (lower[i] && upper[i]) {
                 count++;
             }
         }
-
         return count;
     }
 }
