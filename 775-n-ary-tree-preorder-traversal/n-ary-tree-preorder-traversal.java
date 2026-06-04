@@ -17,15 +17,34 @@ class Node {
 };
 */
 
+// class Solution {
+   
+//     public List<Integer> preorder(Node root) {
+//         List<Integer> output = new ArrayList<>();
+//         if (root == null) return output;
+
+//         output.add(root.val);
+//         for(Node child: root.children){
+//             preorder(child);
+//         }
+//         return output;
+//     }
+// }
+
 class Solution {
-    List<Integer> output = new ArrayList<>();
     public List<Integer> preorder(Node root) {
-        if (root == null) return output;
+        List<Integer> output = new ArrayList<>();
+        dfs(root, output);
+        return output;
+    }
+
+    private void dfs(Node root, List<Integer> output) {
+        if (root == null) return;
 
         output.add(root.val);
-        for(Node child: root.children){
-            preorder(child);
+
+        for (Node child : root.children) {
+            dfs(child, output);
         }
-        return output;
     }
 }
