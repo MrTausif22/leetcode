@@ -18,9 +18,8 @@ class Node {
 */
 
 // class Solution {
-   
+//    List<Integer> output = new ArrayList<>();
 //     public List<Integer> preorder(Node root) {
-//         List<Integer> output = new ArrayList<>();
 //         if (root == null) return output;
 
 //         output.add(root.val);
@@ -37,13 +36,11 @@ class Solution {
         dfs(root, output);
         return output;
     }
-
-    private void dfs(Node root, List<Integer> output) {
-        if (root == null) return;
-
+    public void dfs(Node root, List<Integer> output){
+        if (root == null) return ;
+        
         output.add(root.val);
-
-        for (Node child : root.children) {
+        for(Node child : root.children){
             dfs(child, output);
         }
     }
